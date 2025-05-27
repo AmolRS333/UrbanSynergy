@@ -48,7 +48,7 @@ UrbanSynergy is a full-stack web application designed to streamline community se
 ---
 
 ## 🗂 Folder Structure
-
+```
 urban-synergy/
 │
 ├── client/                            # React Frontend
@@ -107,7 +107,7 @@ urban-synergy/
 └── tailwind.config.js
 
 
-
+```
 ---
 
 ## 🔄 Workflow
