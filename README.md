@@ -51,21 +51,61 @@ UrbanSynergy is a full-stack web application designed to streamline community se
 
 urban-synergy/
 │
-├── client/ # React frontend
-│ ├── src/
-│ │ ├── pages/
-│ │ ├── components/
-│ │ ├── context/
-│ │ └── api/
+├── client/                            # React Frontend
+│   ├── public/
+│   │   └── index.html
+│   ├── src/
+│   │   ├── assets/                    # Images, logos
+│   │   ├── components/               # Reusable UI components
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Sidebar.jsx
+│   │   │   └── ProtectedRoute.jsx
+│   │   ├── pages/                    # Route pages
+│   │   │   ├── Home.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │   ├── AdminDashboard.jsx
+│   │   │   ├── NgoDashboard.jsx
+│   │   │   └── VolunteerDashboard.jsx
+│   │   ├── context/                  # Context API for auth, data state
+│   │   ├── api/                      # Axios config and API calls
+│   │   ├── hooks/                    # Custom hooks
+│   │   ├── utils/                    # Utility functions
+│   │   ├── App.jsx
+│   │   ├── index.jsx
+│   │   └── tailwind.config.js
 │
-├── server/ # Node.js backend
-│ ├── controllers/
-│ ├── models/
-│ ├── routes/
-│ ├── utils/
-│ └── middleware/
+├── server/                            # Node.js Backend
+│   ├── config/
+│   │   ├── db.js                      # MongoDB connection
+│   │   └── mail.js                    # Nodemailer config
+│   ├── controllers/                  # Request logic
+│   │   ├── authController.js
+│   │   ├── eventController.js
+│   │   └── adminController.js
+│   ├── models/                       # Mongoose schemas
+│   │   ├── User.js
+│   │   ├── Event.js
+│   │   └── Report.js
+│   ├── routes/                       # API routes
+│   │   ├── authRoutes.js
+│   │   ├── eventRoutes.js
+│   │   └── adminRoutes.js
+│   ├── middleware/                   # Auth & error handling
+│   │   ├── authMiddleware.js
+│   │   └── errorHandler.js
+│   ├── utils/                        # Utility functions
+│   │   ├── sendEmail.js
+│   │   └── cronJobs.js
+│   ├── app.js                        # Express setup
+│   └── server.js                     # Entry point
 │
-└── .env # Environment variables
+├── .env                               # Environment variables
+├── .gitignore
+├── package.json
+├── README.md
+└── tailwind.config.js
+
 
 
 ---
