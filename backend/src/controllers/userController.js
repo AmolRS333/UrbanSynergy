@@ -5,12 +5,12 @@ const passport = require("passport");
 
 const userSignup = async (req, res) => {
    try {
-    const { name, email, password } = req.body;
+    const { username , email, password } = req.body;
     const exists = await User.findOne({ email });
     if (exists) return res.status(400).json({ message: "User already exists" });
 
     const hashed = await bcrypt.hash(password, 10);
-    const newUser = new User({ name, email, password: hashed });
+    const newUser = new User({ username, email, password: hashed });
     await newUser.save();
     res.json({ message: "User registered successfully" });
   } catch (err) {
