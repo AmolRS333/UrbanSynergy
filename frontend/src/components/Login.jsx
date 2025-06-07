@@ -7,7 +7,7 @@ const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:3000";
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
-    username: "",
+    name: "",
     email: "",
     password: "",
   });
@@ -18,7 +18,7 @@ const AuthForm = () => {
   const handleToggle = () => {
     setIsLogin(!isLogin);
     setErrorMsg("");
-    setFormData({ username: "", email: "", password: "" });
+    setFormData({ name: "", email: "", password: "" });
   };
 
   const handleChange = (e) => {
@@ -80,12 +80,12 @@ const AuthForm = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           {!isLogin && (
             <div>
-              <label className="block mb-1 font-medium">Username</label>
+              <label className="block mb-1 font-medium">Name</label>
               <input
                 type="text"
-                name="username"
+                name="name"
                 required
-                value={formData.username}
+                value={formData.name}
                 onChange={handleChange}
                 className="w-full p-2 rounded bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring focus:ring-blue-500"
               />
