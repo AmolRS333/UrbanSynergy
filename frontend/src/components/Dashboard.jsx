@@ -1,4 +1,8 @@
-import React from "react";
+import React from 'react'
+import axios from 'axios';
+const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:3000";
+import { useState, useEffect } from 'react';
+
 const card = [
   {
     title: "Total Users",
@@ -26,12 +30,21 @@ const card = [
   },
 ];
 const Dashboard = () => {
+const [user, setUser] = useState({ name: "" });
+
+  useEffect(() => {
+    axios
+      .get(`${apiUrl}/auth/user/profile`, { withCredentials: true })
+      .then((res) => setUser({name:res.data.name}))
+      .catch((err) => console.error("Error fetching user profile", err));
+  }, []);
+
   return (
-    <div className="p-6">
+    <div className='bg-zinc-800'>
       <div className="">
         <h1 className="text-2xl font-bold">Dashboard</h1>
         <p className="mt-2">
-          Welcome back, User. Here's what's happening across your departments.
+          Welcome back,<span className="text-amber-300">{user.name}</span>.Here's what's happening across your departments.
         </p>
       </div>
       <div className="grid grid-cols-4 gap-4 mt-10">
